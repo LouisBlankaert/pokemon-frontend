@@ -16,7 +16,7 @@ export default function Home() {
   const fetchPokemons = async () => {
     setLoading(true);
     try {
-      const response = await fetch(`http://127.0.0.1:5000/api/pokemon?offset=${offset}&limit=12`);
+      const response = await fetch(`https://pokemon-backend-e00u.onrender.com/`);
       const data = await response.json();
       if (response.ok) {
         const pokemonImage = await Promise.all(data.results.map(async (pokemon) => {
@@ -49,7 +49,7 @@ export default function Home() {
 // Charger tous les noms de Pokémon pour la recherche globale
 const fetchAllPokemonNames = async () => {
   try {
-    const response = await fetch(`http://127.0.0.1:5000/api/pokemon?limit=1010`); // Récupère jusqu'à 10 000 Pokémon
+    const response = await fetch(`https://pokemon-backend-e00u.onrender.com/api/pokemon?limit=1010`); // Récupère jusqu'à 10 000 Pokémon
     const data = await response.json();
     if (response.ok) {
       const pokemonImage = await Promise.all(data.results.map(async (pokemon) => {
